@@ -1,0 +1,86 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	
+	
+	<!---***************************************************************************
+	
+	You need to run 
+	
+	      mvn validate
+	      
+	To load TableLayout into local maven repositry
+	
+	********************************************************************************-->
+	
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.github.bmTas</groupId>
+	<artifactId>recedui</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>recedui</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.source>1.8</maven.compiler.source>
+	</properties>
+
+	<build>
+		<resources>
+			<resource>
+			    <directory>src/main/resources</directory>
+                <filtering>false</filtering>
+            </resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-install-plugin</artifactId>
+				<version>3.1.2</version>
+				<configuration>
+					<groupId>info.clearthought.layout</groupId>
+					<artifactId>TableLayout</artifactId>
+					<version>
+						1.0</version>
+					<packaging>jar</packaging>
+					<file>
+						${basedir}/dependencies/TableLayout.jar</file>
+					<generatePom>true</generatePom>
+				</configuration>
+				<executions>
+					<execution>
+						<id>
+							install-jar-lib</id>
+						<goals>
+							<goal>install-file</goal>
+						</goals>
+						<phase>
+							validate</phase>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>
+				junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>info.clearthought.layout</groupId>
+			<artifactId>TableLayout</artifactId>
+			<version>1.0</version>
+		</dependency>
+
+	</dependencies>
+
+</project>
